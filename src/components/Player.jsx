@@ -6,7 +6,7 @@ export default function Player({name, symbol}) {
     console.log(`Player - isEditing: ${isEditing}`);
     function handleEditClick() {
         console.log(`handleIsEditing - isEditing: ${isEditing}`);
-        setIsEditing(!isEditing);
+        setIsEditing((editing) => !editing);
     }
 
     return (
@@ -16,7 +16,7 @@ export default function Player({name, symbol}) {
                     { (isEditing) ? <input type="text" required/> : null}
                     <span className="player-symbol">{symbol}</span>
                 </span>
-            <button onClick={handleEditClick}>{ (!isEditing) ? 'Edit' : "Save"}</button>
+            <button onClick={handleEditClick}>{ !isEditing ? 'Edit' : 'Save'}</button>
         </li>
     );
 }
